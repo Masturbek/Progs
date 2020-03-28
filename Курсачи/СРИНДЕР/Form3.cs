@@ -50,6 +50,15 @@ namespace СРИНДЕР
             groupboxtheme.Controls.Add(radiolight);
             groupboxtheme.Controls.Add(radiodark);
 
+            if (Properties.Settings.Default.theme == "светлая")
+            {
+                radiolight.Checked = true;
+            }
+            if (Properties.Settings.Default.theme == "темная")
+            {
+                radiodark.Checked = true;
+            }
+
             okbutton = new Button();
             okbutton.Location = new Point(300,320);
             okbutton.Width = 80;
@@ -84,10 +93,12 @@ namespace СРИНДЕР
             if (radiolight.Checked == true)
             {
                 Properties.Settings.Default.theme = "светлая";
+                Properties.Settings.Default.Save();
             }
             if (radiodark.Checked == true)
             {
                 Properties.Settings.Default.theme = "темная";
+                Properties.Settings.Default.Save();
             }
             this.Close();
             OPtionsGUI();

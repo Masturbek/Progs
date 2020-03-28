@@ -44,6 +44,7 @@ namespace СРИНДЕР
         }          
         public void AuthGUI()
         {
+            
             label1 = new Label();
             label1.Location = new Point(160, 74);
             label1.Text = "FriendZoned®";
@@ -665,7 +666,16 @@ namespace СРИНДЕР
         }
         public void openAUTH(object sender, EventArgs e)
         {
+            if (Properties.Settings.Default.theme == "светлая")
+            {
+                this.BackColor = Color.FromArgb(230, 230, 230);
+            }
+            if (Properties.Settings.Default.theme == "темная")
+            {
+                this.BackColor = Color.FromArgb(64, 64, 64);
+            }
             this.Show();
+            
         }
     }
 }

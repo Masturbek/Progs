@@ -37,10 +37,13 @@ namespace СРИНДЕР
             if (Properties.Settings.Default.theme == "светлая")
             {
                 this.BackColor = Color.FromArgb(230, 230, 230);
+                this.ForeColor = Color.Black;
             }
             if (Properties.Settings.Default.theme == "темная")
             {
                 this.BackColor = Color.FromArgb(64, 64, 64);
+                this.ForeColor = Color.White;
+
             }
             string connectionString = "mongodb://localhost:27017";
             MongoClient client = new MongoClient(connectionString);
@@ -101,8 +104,8 @@ namespace СРИНДЕР
             pnl.Height = 666;
             aboutme = new Label();
             aboutme.AutoSize = true;
-            aboutme.Text = "";
-            pnl.BackColor = SystemColors.ScrollBar;
+            aboutme.Text = "0000000000";
+            pnl.BackColor = SystemColors.ScrollBar;   
             infopanel = new FlowLayoutPanel();
             infopanel.Location = new Point(8, 452);
             infopanel.BackColor = Color.White;
@@ -112,6 +115,15 @@ namespace СРИНДЕР
             infopanel.HorizontalScroll.Visible = false;
             infopanel.Width = 170;
             infopanel.Height = 116;
+            if (Properties.Settings.Default.theme == "светлая")
+            {
+                infopanel.BackColor = Color.White;
+
+            }
+            if (Properties.Settings.Default.theme == "темная")
+            {
+                infopanel.BackColor = Color.FromArgb(96, 96, 96);
+            }
             infopanel.Controls.Add(aboutme);
 
             options = new Button();
@@ -138,23 +150,24 @@ namespace СРИНДЕР
         }
         private void Options(object sender, EventArgs e)
         {
-            
-            Form3 form3 = new Form3();  
-            form3.ShowDialog();
-            form3.
-            //form3.FormClosed += closed;
+            Form3 form3 = new Form3();
+            form3.Show();
+            form3.FormClosing += closed;
 
-            
+
         }
         public void closed(object sender, EventArgs e)
         {
             if (Properties.Settings.Default.theme == "светлая")
             {
                 this.BackColor = Color.FromArgb(230, 230, 230);
+                this.ForeColor = Color.Black;
             }
             if (Properties.Settings.Default.theme == "темная")
             {
                 this.BackColor = Color.FromArgb(64, 64, 64);
+                this.ForeColor = Color.White;
+
             }
         }
         private void Button5_Click(object sender, EventArgs e)
