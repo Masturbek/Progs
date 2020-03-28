@@ -27,15 +27,19 @@ namespace СРИНДЕР
         public void OPtionsGUI()
         {
             this.Controls.Clear();
+            groupboxtheme = new GroupBox();
             if (Properties.Settings.Default.theme == "светлая")
             {
                 this.BackColor = Color.FromArgb(230, 230, 230);
+                this.ForeColor = Color.Black;
             }
             if (Properties.Settings.Default.theme == "темная")
             {
                 this.BackColor = Color.FromArgb(64, 64, 64);
+                this.ForeColor = Color.White;
+                groupboxtheme.ForeColor = Color.White;
             }
-            groupboxtheme = new GroupBox();
+
             groupboxtheme.Location = new Point(30,30);
             groupboxtheme.Width = 150;
             groupboxtheme.Height = 70;

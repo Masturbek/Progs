@@ -24,6 +24,7 @@ namespace СРИНДЕР
         {
             InitializeComponent();
             this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+            this.SetStyle(ControlStyles.Selectable, false);
             this.StartPosition = FormStartPosition.CenterScreen;
             //this.BackColor = SystemColors.Control;          
         }
@@ -34,56 +35,59 @@ namespace СРИНДЕР
             if (Properties.Settings.Default.theme == "светлая")
             {
                 this.BackColor = Color.FromArgb(230, 230, 230);
+                this.ForeColor = Color.Black;
             }
             if (Properties.Settings.Default.theme == "темная")
             {
                 this.BackColor = Color.FromArgb(64, 64, 64);
+                this.ForeColor = Color.White;
             }
             //this.BackgroundImage = Properties.Resources.sds;
             AuthGUI();
         }          
         public void AuthGUI()
         {
-            
+            this.Controls.Clear();
             label1 = new Label();
-            label1.Location = new Point(160, 74);
-            label1.Text = "FriendZoned®";
+            label1.Location = new Point(108, 74);
+            label1.Text = "FriendZoned";
             label1.BackColor = Color.Transparent;
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 20, FontStyle.Bold);
             this.Controls.Add(label1);
             bt1 = new Button();
             bt1.Name = "button1";
             bt1.Text = "Регистрация";
             bt1.Width = 129;
             bt1.Height = 42;
-            bt1.Location = new Point(123, 159);
+            bt1.Location = new Point(130, 159);
             bt1.FlatStyle = FlatStyle.Flat;
-            bt1.FlatAppearance.BorderColor = Color.DarkGray;
+            //bt1.FlatAppearance.BorderColor = Color.DarkGray;
             bt1.Click += this.bt1_reg;
             bt2 = new Button();
             bt2.Name = "button2";
             bt2.Text = "Вход";
             bt2.Width = 129;
             bt2.Height = 44;
-            bt2.Location = new Point(123, 244);
+            bt2.FlatStyle = FlatStyle.Flat;
+            bt2.Location = new Point(130, 244);
             bt2.Click += this.bt2auth;
             this.Controls.Add(bt1);
             this.Controls.Add(bt2);
         }
         public void bt2auth(object sender, EventArgs e)
         {
-            this.Controls.Clear();
             loginGUIload();
         }
 
         public void bt1_reg(object sender,EventArgs e)
         {
-            this.Controls.Clear();
             regGUIload();
         }
         public void backbt(object sender, EventArgs e)
         {
-            this.Controls.Clear();
             AuthGUI();
+            InitializeComponent();
         }
         public void loginGUIload()
         {
@@ -100,6 +104,7 @@ namespace СРИНДЕР
             buttonauth.Height = 44;
             buttonauth.Click += logIN;
             buttonauth.Location = new Point(121, 288);
+            buttonauth.FlatStyle = FlatStyle.Flat;
             //buttonauth.FlatStyle = FlatStyle.Flat;
             //buttonauth.FlatAppearance.BorderColor = Color.Black;
             //buttonauth.FlatAppearance.BorderSize = 1;
@@ -124,7 +129,8 @@ namespace СРИНДЕР
             backbutton.Width = 75;
             backbutton.Height = 23;
             backbutton.Location = new Point(12, 12);
-            backbutton.Click += this.backbt;
+            backbutton.Click += backbt;
+            backbutton.FlatStyle = FlatStyle.Flat;
             passbutton = new Button();
             passbutton.Location = new Point(244, 189);
             passbutton.Text = "👁";
@@ -132,10 +138,10 @@ namespace СРИНДЕР
             passbutton.Width = 22;
             passbutton.Height = 22;
             passbutton.Click += this.passSwitch2;
+            passbutton.FlatStyle = FlatStyle.Flat;
             remember = new CheckBox();
             remember.Location = new Point(155,350);
             remember.Text = "Запомнить";
-            //remember.CheckedChanged += remembercheck;
             this.Controls.Add(labelauth1);
             this.Controls.Add(labelauth2);
             this.Controls.Add(buttonauth);
@@ -219,6 +225,7 @@ namespace СРИНДЕР
             regbutton.Text = "Регистрация";
             regbutton.Width = 144;
             regbutton.Height = 44;
+            regbutton.FlatStyle = FlatStyle.Flat;
             regbutton.Location = new Point(125, 358);
             regbutton.Click += registration;
             backbutton = new Button();
@@ -226,14 +233,17 @@ namespace СРИНДЕР
             backbutton.Width = 75;
             backbutton.Height = 23;
             backbutton.Location = new Point(12, 12);
+            backbutton.FlatStyle = FlatStyle.Flat;
             backbutton.Click += backbt;
             passbutton = new Button();
-            passbutton.Location = new Point(250, 109);         
+            passbutton.Location = new Point(250, 109);
             passbutton.Text = "👁"; 
             passbutton.TextAlign = ContentAlignment.MiddleCenter;
             passbutton.Width = 22;
             passbutton.Height = 22;
             passbutton.Click += this.passSwitch1;
+            passbutton.FlatStyle = FlatStyle.Flat;
+            passbutton.Font = new Font("Microsoft Sans Serif",8);
             age = new NumericUpDown();
             age.Location = new Point(180, 260);
             age.Maximum = 80;
@@ -649,11 +659,13 @@ namespace СРИНДЕР
             };
             var acc = collection.Find(filter).ToList();
             bool finded = false;
+            Properties.Settings.Default.Ulogin = textboxauth1.Text;
+            Properties.Settings.Default.Upassword = textboxauth2.Text;
+            Properties.Settings.Default.Save();
             foreach (var doc in acc)
             {
                 finded = true;
-                
-                Form2 form2 = new Form2(textboxauth1.Text, textboxauth2.Text);
+                Form2 form2 = new Form2();
                 form2.Show();
                 form2.FormClosed += openAUTH;
                 this.Hide();
@@ -669,10 +681,12 @@ namespace СРИНДЕР
             if (Properties.Settings.Default.theme == "светлая")
             {
                 this.BackColor = Color.FromArgb(230, 230, 230);
+                this.ForeColor = Color.Black;
             }
             if (Properties.Settings.Default.theme == "темная")
             {
                 this.BackColor = Color.FromArgb(64, 64, 64);
+                this.ForeColor = Color.White;
             }
             this.Show();
             

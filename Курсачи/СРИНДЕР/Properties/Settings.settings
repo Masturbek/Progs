@@ -14,5 +14,11 @@
     <Setting Name="theme" Type="System.String" Scope="User">
       <Value Profile="(Default)">светлая</Value>
     </Setting>
+    <Setting Name="Ulogin" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Upassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

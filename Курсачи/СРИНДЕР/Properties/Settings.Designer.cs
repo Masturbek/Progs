@@ -70,5 +70,29 @@ namespace СРИНДЕР.Properties {
                 this["theme"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Ulogin {
+            get {
+                return ((string)(this["Ulogin"]));
+            }
+            set {
+                this["Ulogin"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Upassword {
+            get {
+                return ((string)(this["Upassword"]));
+            }
+            set {
+                this["Upassword"] = value;
+            }
+        }
     }
 }

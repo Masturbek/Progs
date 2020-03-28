@@ -15,22 +15,21 @@ namespace СРИНДЕР
 {
     public partial class Form2 : Form
     {
-        public Form2(string Login, string Password)
+        public Form2()
         {
-            string login = Login;
-            string password = Password;
+           
             InitializeComponent();
             this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
             this.StartPosition = FormStartPosition.CenterScreen;
-            mainprofileGUIload(login, password);
         }
         public void Form2_Load(object sender, EventArgs e)
         {
             //this.BackgroundImage = Properties.Resources.sds;
-         
+            mainprofileGUIload();
+            DataLoad();
         }
 
-        public void mainprofileGUIload(string login, string password)
+        public void mainprofileGUIload()
         {
             //this.BackColor = SystemColors.ControlText;
             this.Controls.Clear();
@@ -45,58 +44,44 @@ namespace СРИНДЕР
                 this.ForeColor = Color.White;
 
             }
-            string connectionString = "mongodb://localhost:27017";
-            MongoClient client = new MongoClient(connectionString);
-            var database = client.GetDatabase("оДНОгруппники");
-            var collection = database.GetCollection<BsonDocument>("accounts");
-            var filter = new BsonDocument
-            {
-              {"_id",$"{login}"},
-              {"password", $"{password}"}
-            };
-            var acc = collection.Find(filter).ToList();
             profilename = new Label();
-            profileimage = new PictureBox();
-            byte[] photoimg = null;
-            BsonValue bs = null;
+            profileimage = new PictureBox();            
             labelnameage = new Label();
             labelnameage.Location = new Point(70, 18);
-            foreach (var doc in acc)
-            {
-                labelnameage.Text = $"{doc.GetValue("name")}, {doc.GetValue("age")}";
-                bs = doc.GetValue("photo");
-            }
-            photoimg = bs.AsByteArray;
-            MemoryStream ms = new MemoryStream(photoimg, 0, photoimg.Length);
+           
             profileimage.Location = new Point(5, 43);
             profileimage.Width = 200;
             profileimage.Height = 220;
             profileimage.SizeMode = PictureBoxSizeMode.StretchImage;
-            profileimage.Image = new Bitmap(ms);
+ 
             profileimage.BorderStyle = BorderStyle.FixedSingle;
             editprofile = new Button();
             editprofile.Location = new Point(5, 274);
             editprofile.Width = 200;
             editprofile.Height = 37;
             editprofile.Text = "Редактировать профиль";
+            editprofile.FlatStyle = FlatStyle.Flat;
             //editprofile.Click += ;
             messages = new Button();
             messages.Location = new Point(525, 88);
             messages.Width = 243;
             messages.Height = 58;
             messages.Text = "СООБЩЕНИЯ";
+            messages.FlatStyle = FlatStyle.Flat;
             //messages.Click += ;
             notifications = new Button();
             notifications.Location = new Point(525, 201);
             notifications.Width = 243;
             notifications.Height = 58;
             notifications.Text = "УВЕДОМЛЕНИЯ";
+            notifications.FlatStyle = FlatStyle.Flat;
             //notifications.Click += ;
             findcouple = new Button();
             findcouple.Location = new Point(525, 316);
             findcouple.Width = 243;
             findcouple.Height = 58;
             findcouple.Text = "ПОИСК ПАРЫ";
+            findcouple.FlatStyle = FlatStyle.Flat;
             //findcouple.Click += ;
             pnl = new Panel();
             pnl.Location = new Point(388, 0);
@@ -148,27 +133,42 @@ namespace СРИНДЕР
             this.Controls.Add(options);
 
         }
+
+        public void DataLoad()
+        {
+            string connectionString = "mongodb://localhost:27017";
+            MongoClient client = new MongoClient(connectionString);
+            var database = client.GetDatabase("оДНОгруппники");
+            var collection = database.GetCollection<BsonDocument>("accounts");
+            var filter = new BsonDocument
+            {
+              {"_id",$"{Properties.Settings.Default.Ulogin}"},
+              {"password", $"{Properties.Settings.Default.Upassword}"}
+            };
+            var acc = collection.Find(filter).ToList();
+            BsonValue bs = null;
+            byte[] photoimg = null;
+            foreach (var doc in acc)
+            {
+                labelnameage.Text = $"{doc.GetValue("name")}, {doc.GetValue("age")}";
+                bs = doc.GetValue("photo");
+            }
+            photoimg = bs.AsByteArray;
+            MemoryStream ms = new MemoryStream(photoimg, 0, photoimg.Length);
+            profileimage.Image = new Bitmap(ms);
+        }
+
         private void Options(object sender, EventArgs e)
         {
             Form3 form3 = new Form3();
             form3.Show();
             form3.FormClosing += closed;
 
-
         }
         public void closed(object sender, EventArgs e)
         {
-            if (Properties.Settings.Default.theme == "светлая")
-            {
-                this.BackColor = Color.FromArgb(230, 230, 230);
-                this.ForeColor = Color.Black;
-            }
-            if (Properties.Settings.Default.theme == "темная")
-            {
-                this.BackColor = Color.FromArgb(64, 64, 64);
-                this.ForeColor = Color.White;
-
-            }
+            mainprofileGUIload();
+            DataLoad();
         }
         private void Button5_Click(object sender, EventArgs e)
         {
