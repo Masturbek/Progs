@@ -37,6 +37,7 @@
             this.ClientSize = new System.Drawing.Size(430, 407);
             this.ControlBox = false;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "Form3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Настройки";
@@ -51,5 +52,10 @@
         private System.Windows.Forms.RadioButton radiodark;
         private System.Windows.Forms.Button okbutton;
         private System.Windows.Forms.Button cancelbutton;
+        private System.Windows.Forms.NumericUpDown agemax;
+        private System.Windows.Forms.NumericUpDown agemin;
+        private System.Windows.Forms.Label labelmax;
+        private System.Windows.Forms.Label labelmin;
+
     }
 }

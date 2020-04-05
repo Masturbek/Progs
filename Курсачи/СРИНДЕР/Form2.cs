@@ -26,24 +26,24 @@ namespace СРИНДЕР
         {
             //this.BackgroundImage = Properties.Resources.sds;
             mainprofileGUIload();
-            DataLoad();
+            ThemeChanged();
+            DataLoad();     
         }
-
+      
         public void mainprofileGUIload()
         {
-            //this.BackColor = SystemColors.ControlText;
             this.Controls.Clear();
-            if (Properties.Settings.Default.theme == "светлая")
-            {
-                this.BackColor = Color.FromArgb(230, 230, 230);
-                this.ForeColor = Color.Black;
-            }
-            if (Properties.Settings.Default.theme == "темная")
-            {
-                this.BackColor = Color.FromArgb(64, 64, 64);
-                this.ForeColor = Color.White;
+            //if (Properties.Settings.Default.theme == "светлая")
+            //{
+            //    this.BackColor = Color.FromArgb(230, 230, 230);
+            //    this.ForeColor = Color.Black;
+            //}
+            //if (Properties.Settings.Default.theme == "темная")
+            //{
+            //    this.BackColor = Color.FromArgb(64, 64, 64);
+            //    this.ForeColor = Color.White;
 
-            }
+            //}
             profilename = new Label();
             profileimage = new PictureBox();            
             labelnameage = new Label();
@@ -61,7 +61,7 @@ namespace СРИНДЕР
             editprofile.Height = 37;
             editprofile.Text = "Редактировать профиль";
             editprofile.FlatStyle = FlatStyle.Flat;
-            //editprofile.Click += ;
+            editprofile.Click += Edit;
             messages = new Button();
             messages.Location = new Point(525, 88);
             messages.Width = 243;
@@ -88,8 +88,7 @@ namespace СРИНДЕР
             pnl.Width = 10;
             pnl.Height = 666;
             aboutme = new Label();
-            aboutme.AutoSize = true;
-            aboutme.Text = "0000000000";
+            aboutme.AutoSize = true;    
             pnl.BackColor = SystemColors.ScrollBar;   
             infopanel = new FlowLayoutPanel();
             infopanel.Location = new Point(8, 452);
@@ -100,15 +99,15 @@ namespace СРИНДЕР
             infopanel.HorizontalScroll.Visible = false;
             infopanel.Width = 170;
             infopanel.Height = 116;
-            if (Properties.Settings.Default.theme == "светлая")
-            {
-                infopanel.BackColor = Color.White;
+            //if (Properties.Settings.Default.theme == "светлая")
+            //{
+            //    infopanel.BackColor = Color.White;
 
-            }
-            if (Properties.Settings.Default.theme == "темная")
-            {
-                infopanel.BackColor = Color.FromArgb(96, 96, 96);
-            }
+            //}
+            //if (Properties.Settings.Default.theme == "темная")
+            //{
+            //    infopanel.BackColor = Color.FromArgb(96, 96, 96);
+            //}
             infopanel.Controls.Add(aboutme);
 
             options = new Button();
@@ -136,40 +135,68 @@ namespace СРИНДЕР
 
         public void DataLoad()
         {
-            string connectionString = "mongodb://localhost:27017";
-            MongoClient client = new MongoClient(connectionString);
-            var database = client.GetDatabase("оДНОгруппники");
-            var collection = database.GetCollection<BsonDocument>("accounts");
-            var filter = new BsonDocument
-            {
-              {"_id",$"{Properties.Settings.Default.Ulogin}"},
-              {"password", $"{Properties.Settings.Default.Upassword}"}
-            };
-            var acc = collection.Find(filter).ToList();
-            BsonValue bs = null;
-            byte[] photoimg = null;
-            foreach (var doc in acc)
-            {
-                labelnameage.Text = $"{doc.GetValue("name")}, {doc.GetValue("age")}";
-                bs = doc.GetValue("photo");
-            }
-            photoimg = bs.AsByteArray;
-            MemoryStream ms = new MemoryStream(photoimg, 0, photoimg.Length);
-            profileimage.Image = new Bitmap(ms);
+           
+                string connectionString = "mongodb://localhost:27017";
+                MongoClient client = new MongoClient(connectionString);
+                var database = client.GetDatabase("оДНОгруппники");
+                var collection = database.GetCollection<BsonDocument>("accounts");
+                var filter = new BsonDocument
+                {
+                  {"_id",$"{Properties.Settings.Default.Ulogin}"},
+                  {"password", $"{Properties.Settings.Default.Upassword}"}
+                };
+                var acc = collection.Find(filter).ToList();
+                BsonValue bs = null;
+                byte[] photoimg = null;
+                foreach (var doc in acc)
+                {
+                    labelnameage.Text = $"{doc.GetValue("name")}, {doc.GetValue("age")}";
+                    bs = doc.GetValue("photo");
+                    aboutme.Text = $"{doc.GetValue("info")}";
+                }
+                photoimg = bs.AsByteArray;
+                MemoryStream ms = new MemoryStream(photoimg, 0, photoimg.Length);
+                profileimage.Image = new Bitmap(ms);
+            
         }
-
+        public void ThemeChanged()
+        {
+            if (Properties.Settings.Default.theme == "светлая")
+            {
+                this.BackColor = Color.FromArgb(230, 230, 230);
+                this.ForeColor = Color.Black;
+                infopanel.BackColor = Color.White;
+            }
+            if (Properties.Settings.Default.theme == "темная")
+            {
+                this.BackColor = Color.FromArgb(64, 64, 64);
+                this.ForeColor = Color.White;
+                infopanel.BackColor = Color.FromArgb(96, 96, 96);
+            }
+        }
         private void Options(object sender, EventArgs e)
         {
-            Form3 form3 = new Form3();
-            form3.Show();
-            form3.FormClosing += closed;
-
+            form3 = new Form3();
+            form3.FormClosing += form3closed;
+            form3.ShowDialog();   
+          
         }
-        public void closed(object sender, EventArgs e)
+        private void Edit(object sender, EventArgs e)
         {
-            mainprofileGUIload();
-            DataLoad();
+            form4 = new Form4();
+            form4.FormClosing += form4closed;
+            form4.ShowDialog();
         }
+        public void form3closed(object sender, EventArgs e)
+        {
+            //mainprofileGUIload();
+            //DataLoad();
+            ThemeChanged();
+        }
+        public void form4closed(object sender, EventArgs e)
+        {
+            DataLoad();
+        } 
         private void Button5_Click(object sender, EventArgs e)
         {
 

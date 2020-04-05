@@ -9,9 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MongoDB.Driver;
 using MongoDB.Bson;
-using Mongo.GridFs;
-using MongoDB.GridFS;
-using MongoDB.Driver.GridFS;
 using System.IO;
 
 
@@ -87,7 +84,6 @@ namespace СРИНДЕР
         public void backbt(object sender, EventArgs e)
         {
             AuthGUI();
-            InitializeComponent();
         }
         public void loginGUIload()
         {
@@ -610,7 +606,15 @@ namespace СРИНДЕР
                 MongoClient client = new MongoClient(connectionString);
                 var database = client.GetDatabase("оДНОгруппники");
                 var collection = database.GetCollection<BsonDocument>("accounts");
-                byte[] array = File.ReadAllBytes("C:\\Users\\user\\Desktop\\noavatar.png");
+                //byte[] array = File.ReadAllBytes("C:\\Users\\user\\Desktop\\noavatar.png");
+
+
+                Bitmap image = new Bitmap(Properties.Resources.noavatar);
+                System.IO.MemoryStream imgtobin = new System.IO.MemoryStream();
+                image.Save(imgtobin, System.Drawing.Imaging.ImageFormat.Png);
+                byte[] img = imgtobin.ToArray();
+
+
                 string namestr = textbox4.Text;
                 char[] c = new char[textbox4.Text.Length];
                 for (int i = 0; i < c.Length; i++)
@@ -626,7 +630,8 @@ namespace СРИНДЕР
                  {"E-mail", $"{textbox3.Text}"},
                  {"name", $"{namestr}"},
                  {"age", Convert.ToInt32(age.Value)},
-                 {"photo", array},
+                 {"photo", img},
+                 {"info", ""}
                 };              
                 collection.InsertOne(account);
                 MessageBox.Show("Регистрация успешна\n      Теперь войдите");
@@ -636,7 +641,9 @@ namespace СРИНДЕР
         }
         public void logIN(object sender, EventArgs e)
         {
-            if (remember.Checked == true)
+            try
+            {
+                if (remember.Checked == true)
             {
                 Properties.Settings.Default.Userlogin = textboxauth1.Text;
                 Properties.Settings.Default.Userpassword = textboxauth2.Text;
@@ -674,10 +681,13 @@ namespace СРИНДЕР
             {
                 MessageBox.Show("Неверный логин или пароль", "Ошибка авторизации", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            //!!!!!!!!APPLICATION
+                //!!!!!!!!APPLICATION
+            }
+            catch { MessageBox.Show("Нет соединение с сервером"); }
         }
         public void openAUTH(object sender, EventArgs e)
         {
+
             if (Properties.Settings.Default.theme == "светлая")
             {
                 this.BackColor = Color.FromArgb(230, 230, 230);
@@ -689,7 +699,6 @@ namespace СРИНДЕР
                 this.ForeColor = Color.White;
             }
             this.Show();
-            
         }
     }
 }

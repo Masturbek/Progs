@@ -20,7 +20,6 @@ namespace СРИНДЕР
 
         private void Form3_Load(object sender, EventArgs e)
         {
-            
             OPtionsGUI();
         }
 
@@ -63,13 +62,41 @@ namespace СРИНДЕР
                 radiodark.Checked = true;
             }
 
+            labelmax = new Label();
+            labelmax.Location = new Point(26,110);
+            labelmax.Text = "Максимальный возраст поиска";
+            labelmax.Width = 250;
+
+            labelmin = new Label();
+            labelmin.Location = new Point(27, 160);
+            labelmin.Text = "Минимальный возраст поиска";
+            labelmin.Width = 250;
+
+            agemax = new NumericUpDown();
+            agemax.Location = new Point(30,130);
+            agemax.Maximum = 80;
+            agemax.Minimum = 18;
+            agemax.Width = 40;
+            agemax.Height = 25;
+            agemax.ValueChanged += ValueChanged;
+
+            agemin = new NumericUpDown();
+            agemin.Location = new Point(30, 180);
+            agemin.Maximum = 80;
+            agemin.Minimum = 18;
+            agemin.Width = 40;
+            agemin.Height = 25;
+            agemin.ValueChanged += ValueChanged;
+
+
+
             okbutton = new Button();
             okbutton.Location = new Point(300,320);
             okbutton.Width = 80;
             okbutton.Height = 40;
             okbutton.Text = "Принять";
             okbutton.Click += apply;
-            okbutton.DialogResult = DialogResult.OK;
+            okbutton.FlatStyle = FlatStyle.Flat;
 
             cancelbutton = new Button();
             cancelbutton.Location = new Point(300, 300);
@@ -78,15 +105,25 @@ namespace СРИНДЕР
             cancelbutton.Height = 40;
             cancelbutton.Text = "Отмена";
             cancelbutton.Click += cancel;
-
+            cancelbutton.FlatStyle = FlatStyle.Flat;
 
             this.Controls.Add(groupboxtheme);
             this.Controls.Add(okbutton);
             this.Controls.Add(cancelbutton);
+            this.Controls.Add(agemax);
+            this.Controls.Add(agemin);
+            this.Controls.Add(labelmax);
+            this.Controls.Add(labelmin);
+        }
+        public void ValueChanged(object sender, EventArgs e)
+        {
+            if (agemax.Value < agemin.Value)
+            {
+                agemin.Value -= 1;
+            }
 
 
         }
-
 
         public void cancel(object sender, EventArgs e)
         {
@@ -104,8 +141,11 @@ namespace СРИНДЕР
                 Properties.Settings.Default.theme = "темная";
                 Properties.Settings.Default.Save();
             }
-            this.Close();
-            OPtionsGUI();
+            Properties.Settings.Default.agemax = Convert.ToInt32(agemax.Value);
+            Properties.Settings.Default.agemin = Convert.ToInt32(agemin.Value);
+            Properties.Settings.Default.Save();
+            this.Close(); 
+            //OPtionsGUI();
         }
 
 

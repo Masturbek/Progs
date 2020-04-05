@@ -63,6 +63,7 @@
             this.Controls.Add(this.panel3);
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
@@ -82,8 +83,9 @@
         private System.Windows.Forms.Button findcouple;     
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.FlowLayoutPanel infopanel;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button options;
-
+        private System.Windows.Forms.Form form3;
+        private System.Windows.Forms.Form form4;
+        private System.Windows.Forms.Button button5;
     }
 }

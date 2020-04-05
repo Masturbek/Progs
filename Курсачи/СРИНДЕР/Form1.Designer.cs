@@ -38,6 +38,7 @@
             this.ClientSize = new System.Drawing.Size(384, 461);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Авторизация";
             this.TransparencyKey = System.Drawing.Color.Aqua;
@@ -100,7 +101,6 @@
         private System.Windows.Forms.RadioButton gendermale;
         private System.Windows.Forms.RadioButton genderfemale;
         private System.Windows.Forms.CheckBox remember;
-
     }
 }
 

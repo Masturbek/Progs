@@ -94,5 +94,29 @@ namespace СРИНДЕР.Properties {
                 this["Upassword"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("18")]
+        public int agemax {
+            get {
+                return ((int)(this["agemax"]));
+            }
+            set {
+                this["agemax"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("18")]
+        public int agemin {
+            get {
+                return ((int)(this["agemin"]));
+            }
+            set {
+                this["agemin"] = value;
+            }
+        }
     }
 }

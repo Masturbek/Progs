@@ -34,3 +34,4 @@ C:\Users\user\Desktop\уч\Программирование\СРИНДЕР\bin\D
 C:\Users\user\Desktop\уч\Программирование\СРИНДЕР\bin\Debug\MongoDB.GridFS.dll
 C:\Users\user\Desktop\уч\Программирование\СРИНДЕР\bin\Debug\MongoDB.Driver.GridFS.xml
 C:\Users\user\Desktop\уч\Программирование\СРИНДЕР\obj\Debug\СРИНДЕР.Form3.resources
+C:\Users\user\Desktop\уч\Программирование\СРИНДЕР\obj\Debug\СРИНДЕР.Form4.resources
