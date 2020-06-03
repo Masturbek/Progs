@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="WPFtest.ChatControlP"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFtest"
+             Name="ChatP"   
+             
+             mc:Ignorable="d" Margin="0,2,0,0" Height="Auto" Width="480.833">
+    <Grid Margin="0,0,0,0" SnapsToDevicePixels="True">
+        <Grid Background="#FFB2B2B2" Margin="0,0,0,0" SnapsToDevicePixels="True">
+            <Border BorderBrush="Black" BorderThickness="0.2" Margin="6,6.084,0,0" Width="55.992" HorizontalAlignment="Left" Height="54.583" VerticalAlignment="Top">
+                <Image Margin="1,1,1,1" Source="{Binding Image, ElementName=ChatP}" Stretch="UniformToFill" SnapsToDevicePixels="True" RenderOptions.BitmapScalingMode="HighQuality"/>
+            </Border>
+            <TextBlock Height="24.084" Margin="419.667,0,0,0" TextWrapping="Wrap" Text="{Binding Time, ElementName=ChatP}" VerticalAlignment="Top" TextAlignment="Center" FontSize="16"/>
+            <TextBlock HorizontalAlignment="Left" Height="24" Margin="66.992,6.084,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176.667" Text="{Binding ChatName, ElementName=ChatP}" FontSize="16"/>
+
+            <Grid HorizontalAlignment="Left" Height="Auto" Margin="8,68,0,8" VerticalAlignment="Top" Width="468.333" Background="#FFAAAAAA">
+                <TextBlock Margin="4.5,3.367,0,0" Height="Auto" Width="Auto" TextWrapping="Wrap" Text="{Binding Message, ElementName=ChatP}" FontSize="14"/>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</UserControl>
