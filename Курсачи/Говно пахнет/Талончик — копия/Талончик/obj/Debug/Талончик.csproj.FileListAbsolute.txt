@@ -99,3 +99,38 @@ C:\Users\Ильшат\Desktop\Талончик — копия\Талончик\o
 C:\Users\Ильшат\Desktop\Талончик — копия\Талончик\obj\Debug\Талончик.TEST.resources
 C:\Users\Ильшат\Desktop\Талончик\Талончик\obj\Debug\Талончик.NewTextBox.resources
 C:\Users\Ильшат\Desktop\Талончик\Талончик\obj\Debug\Талончик.TEST.resources
+C:\Users\user\Desktop\Progs\Курсачи\Говно пахнет\Талончик — копия\Талончик\bin\Debug\mongocrypt.dll
+C:\Users\user\Desktop\Progs\Курсачи\Говно пахнет\Талончик — копия\Талончик\bin\Debug\Талончик.exe.config
+C:\Users\user\Desktop\Progs\Курсачи\Говно пахнет\Талончик — копия\Талончик\bin\Debug\Талончик.exe
+C:\Users\user\Desktop\Progs\Курсачи\Говно пахнет\Талончик — копия\Талончик\bin\Debug\Талончик.pdb
+C:\Users\user\Desktop\Progs\Курсачи\Говно пахнет\Талончик — копия\Талончик\bin\Debug\Crc32C.NET.dll
+C:\Users\user\Desktop\Progs\Курсачи\Говно пахнет\Талончик — копия\Талончик\bin\Debug\DnsClient.dll
+C:\Users\user\Desktop\Progs\Курсачи\Говно пахнет\Талончик — копия\Талончик\bin\Debug\MongoDB.Bson.dll
+C:\Users\user\Desktop\Progs\Курсачи\Говно пахнет\Талончик — копия\Талончик\bin\Debug\MongoDB.Driver.Core.dll
+C:\Users\user\Desktop\Progs\Курсачи\Говно пахнет\Талончик — копия\Талончик\bin\Debug\MongoDB.Driver.dll
+C:\Users\user\Desktop\Progs\Курсачи\Говно пахнет\Талончик — копия\Талончик\bin\Debug\MongoDB.Libmongocrypt.dll
+C:\Users\user\Desktop\Progs\Курсачи\Говно пахнет\Талончик — копия\Талончик\bin\Debug\SharpCompress.dll
+C:\Users\user\Desktop\Progs\Курсачи\Говно пахнет\Талончик — копия\Талончик\bin\Debug\Snappy.NET.dll
+C:\Users\user\Desktop\Progs\Курсачи\Говно пахнет\Талончик — копия\Талончик\bin\Debug\System.Buffers.dll
+C:\Users\user\Desktop\Progs\Курсачи\Говно пахнет\Талончик — копия\Талончик\bin\Debug\Crc32C.NET.xml
+C:\Users\user\Desktop\Progs\Курсачи\Говно пахнет\Талончик — копия\Талончик\bin\Debug\DnsClient.xml
+C:\Users\user\Desktop\Progs\Курсачи\Говно пахнет\Талончик — копия\Талончик\bin\Debug\MongoDB.Bson.xml
+C:\Users\user\Desktop\Progs\Курсачи\Говно пахнет\Талончик — копия\Талончик\bin\Debug\MongoDB.Driver.xml
+C:\Users\user\Desktop\Progs\Курсачи\Говно пахнет\Талончик — копия\Талончик\bin\Debug\MongoDB.Driver.Core.xml
+C:\Users\user\Desktop\Progs\Курсачи\Говно пахнет\Талончик — копия\Талончик\bin\Debug\Snappy.NET.xml
+C:\Users\user\Desktop\Progs\Курсачи\Говно пахнет\Талончик — копия\Талончик\bin\Debug\System.Buffers.xml
+C:\Users\user\Desktop\Progs\Курсачи\Говно пахнет\Талончик — копия\Талончик\obj\Debug\Талончик.csprojAssemblyReference.cache
+C:\Users\user\Desktop\Progs\Курсачи\Говно пахнет\Талончик — копия\Талончик\obj\Debug\Талончик.Buttonchik.resources
+C:\Users\user\Desktop\Progs\Курсачи\Говно пахнет\Талончик — копия\Талончик\obj\Debug\Талончик.DayTab.resources
+C:\Users\user\Desktop\Progs\Курсачи\Говно пахнет\Талончик — копия\Талончик\obj\Debug\Талончик.Form1.resources
+C:\Users\user\Desktop\Progs\Курсачи\Говно пахнет\Талончик — копия\Талончик\obj\Debug\Талончик.Form2.resources
+C:\Users\user\Desktop\Progs\Курсачи\Говно пахнет\Талончик — копия\Талончик\obj\Debug\Талончик.FormAdmin.resources
+C:\Users\user\Desktop\Progs\Курсачи\Говно пахнет\Талончик — копия\Талончик\obj\Debug\Талончик.NewTextBox.resources
+C:\Users\user\Desktop\Progs\Курсачи\Говно пахнет\Талончик — копия\Талончик\obj\Debug\Талончик.Properties.Resources.resources
+C:\Users\user\Desktop\Progs\Курсачи\Говно пахнет\Талончик — копия\Талончик\obj\Debug\Талончик.TEST.resources
+C:\Users\user\Desktop\Progs\Курсачи\Говно пахнет\Талончик — копия\Талончик\obj\Debug\Талончик.ZapisControl.resources
+C:\Users\user\Desktop\Progs\Курсачи\Говно пахнет\Талончик — копия\Талончик\obj\Debug\Талончик.csproj.GenerateResource.cache
+C:\Users\user\Desktop\Progs\Курсачи\Говно пахнет\Талончик — копия\Талончик\obj\Debug\Талончик.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\Progs\Курсачи\Говно пахнет\Талончик — копия\Талончик\obj\Debug\Талончик.csproj.CopyComplete
+C:\Users\user\Desktop\Progs\Курсачи\Говно пахнет\Талончик — копия\Талончик\obj\Debug\Талончик.exe
+C:\Users\user\Desktop\Progs\Курсачи\Говно пахнет\Талончик — копия\Талончик\obj\Debug\Талончик.pdb

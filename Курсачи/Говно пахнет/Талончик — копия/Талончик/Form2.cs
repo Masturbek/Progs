@@ -303,15 +303,23 @@ namespace Талончик
                                             }
                                         }
                                     }
-                                    
-                                    if (DateTime.Now.Year.CompareTo(dateTimePicker1.Value.Year) == 0 & DateTime.Now.Month.CompareTo(dateTimePicker1.Value.Month) == 0 & DateTime.Now.Day.CompareTo(dateTimePicker1.Value.Day) == 0 & saveButton.TextButton.CompareTo(DateTime.Now.ToShortTimeString()) < 0)
+
+                                    if (DateTime.Now.Year == dateTimePicker1.Value.Year & DateTime.Now.Month == dateTimePicker1.Value.Month & DateTime.Now.Day == dateTimePicker1.Value.Day)
                                     {
-                                        //    var now = DateTime.Now.ToShortTimeString();
-                                        //    var n = String.Compare(saveButton.TextButton, now);
-                                        //    if (n < 0) 
-                                        saveButton.EnableButton = false;
+                                        var now = DateTime.Now.ToShortTimeString();
+                                        //var n = String.Compare(saveButton.TextButton, now);
+
+                                        if (now.Length == 4)
+                                        {
+                                            now = $"0{now}";
+                                        }
+                                        var n = String.Compare($"{now}", saveButton.TextButton);
+                                        if (n > 0)
+                                        {
+                                            saveButton.EnableButton = false;
+                                        }
                                     }
-                                dayTab1.AddB(saveButton);
+                                    dayTab1.AddB(saveButton);
                                 }
                             }
                             catch { i = -2; }
